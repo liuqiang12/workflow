@@ -14,6 +14,8 @@ import { UserlistComponent } from './components/systems/users/userlist/userlist.
 import { RouterModule, Routes } from "@angular/router";
 //系统用户服务
 import { UserService } from "./services/systems/user.service";
+
+import { LoginCanActivateGuard } from './components/commons/guard/login-can-activate-guard';
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
   // for development
@@ -44,7 +46,7 @@ const appRoutes=[
       }
     })
   ],
-  providers: [UserService],
+  providers: [UserService,LoginCanActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
