@@ -1,26 +1,29 @@
 <!--
   @routerTransition
   路由切换动画为页面添：该路由动画，可以接受方法，传递路由相关的data参数
+
+  <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin(loginUser)"> 登录 </a>
 -->
 <div class="login-page" [@routerTransition]>
   <div class="row justify-content-md-center">
     <div class="col-md-4">
       <img src="assets/images/logo.png" width="150px" class="user-avatar" />
       <h1>通用后台管理</h1>
-      <form role="form">
+      <form ngForm novalidate>
         <div class="form-content">
           <div class="form-group">
-            <input type="text" ng-model="name" class="form-control input-underline input-lg"   placeholder="邮箱">
+            <input type="text" name="loginUser.name"  ngModel required  class="form-control input-underline input-lg"   placeholder="名称">
           </div>
 
           <div class="form-group">
-            <input type="password" class="form-control input-underline input-lg"   placeholder="密码">
+            <input type="password" name="loginUser.password" ngModel required   class="form-control input-underline input-lg"   placeholder="密码">
           </div>
         </div>
-        <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> 登录 </a>
+        <a class="btn rounded-btn" (click)="onLoggedin(f)"> 登录 </a>
         &nbsp;
         <a class="btn rounded-btn" [routerLink]="['/signup']">注册</a>
       </form>
+
     </div>
   </div>
 </div>
