@@ -11,6 +11,7 @@ import  {LoginUserModel}  from './login-user-model';
   styleUrls: ['./login.component.scss'],
   animations: [routerTransition()]
 })
+//模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
 export class LoginComponent implements OnInit {
 
   loginUserModel = new LoginUserModel("admin","111111");
