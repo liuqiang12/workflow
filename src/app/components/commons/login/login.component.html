@@ -9,19 +9,23 @@
     <div class="col-md-4">
       <img src="assets/images/logo.png" width="150px" class="user-avatar" />
       <h1>通用后台管理</h1>
-      <form ngForm novalidate>
+      <form>
         <div class="form-content">
           <div class="form-group">
-            <input type="text" name="loginUser.name"  ngModel required  class="form-control input-underline input-lg"   placeholder="名称">
+
           </div>
 
           <div class="form-group">
             <input type="password" name="loginUser.password" ngModel required   class="form-control input-underline input-lg"   placeholder="密码">
           </div>
         </div>
-        <a class="btn rounded-btn" (click)="onLoggedin(f)"> 登录 </a>
-        &nbsp;
-        <a class="btn rounded-btn" [routerLink]="['/signup']">注册</a>
+        <!-- EXTRA MATERIAL FOR DOCUMENTATION -->
+        <hr>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="model.name" name="name">
+        TODO: remove this: {{model.name}}&nbsp;
+        <a class="btn rounded-btn" >注册</a>
       </form>
 
     </div>
