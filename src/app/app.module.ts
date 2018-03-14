@@ -13,7 +13,7 @@ import { NavComponent } from './components/commons/nav/nav.component';
 import { AlertComponent } from './components/commons/alert/alert.component';
 import { UserlistComponent } from './components/systems/users/userlist/userlist.component';
 
-import { UserService } from "./services/systems/user.service";
+
 import { LoginCanActivateGuard } from './components/commons/guard/login-can-activate-guard';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     AlertComponent,
     UserlistComponent
   ],
-  providers: [UserService,LoginCanActivateGuard],
+  providers: [LoginCanActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

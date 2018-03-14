@@ -6,7 +6,6 @@ import { FormsModule }   from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module';
 //登录组件
 import { LoginComponent } from './login.component';
-
 @NgModule({
   imports: [
     CommonModule,//NgIf、NgFor等指令
