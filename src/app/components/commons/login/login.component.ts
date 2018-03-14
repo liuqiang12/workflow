@@ -13,9 +13,12 @@ import  {LoginUserModel}  from './login-user-model';
 })
 export class LoginComponent implements OnInit {
 
-  model = new LoginUserModel("asdfasfafaliuqiang");
+  loginUserModel = new LoginUserModel("admin","111111");
   constructor(public router: Router) {}
 
   ngOnInit() {
+  }
+  onLoggedin() {
+    console.log(this.loginUserModel)
   }
 }

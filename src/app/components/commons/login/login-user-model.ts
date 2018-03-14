@@ -1,7 +1,8 @@
 //默认是public类型
 export class LoginUserModel {
   constructor(
-    public name: string
+    public name: string,
+    public password:string
   ) {  }
 }
 // You can create a new hero like this:
