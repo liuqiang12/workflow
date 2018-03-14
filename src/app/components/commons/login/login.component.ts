@@ -21,7 +21,7 @@ import {UserService} from '../../../services/systems/user.service';
 })
 //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
 export class LoginComponent implements OnInit {
-  loginUserModel : LoginUserModel;
+  loginUserModel = new  LoginUserModel();
   constructor(
     public router: Router,
     public userService : UserService
@@ -29,10 +29,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     //设置默认的登录用户名称和用户密码
-    this.loginUserModel = this.userService.getLoginDefault();
-    console.log(this.loginUserModel)
-    console.log("获取相应的配置文件信息")
-    this.userService.getUsers();
+    //this.loginUserModel = this.userService.getLoginDefault();//暂时没有使用了
+    this.userService.getLoginDefaultFromJsonFile().subscribe(data =>
+      {
+        this.loginUserModel.id = data['id'];
+        this.loginUserModel.name = data['name'];
+        this.loginUserModel.password = data['password'];
+        console.log(this.loginUserModel)
+      },
+      error => {
+        console.log("调用出错了!")
+      }
+    );
   }
   onLoggedin() {
     console.log(this.loginUserModel)

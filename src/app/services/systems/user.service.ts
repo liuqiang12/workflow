@@ -16,7 +16,7 @@ export class UserService {
   ];
 
 // 获取用户列表
-  getUsers(){
+  getLoginDefaultFromJsonFile(){
     return this.http.get(BaseService.BaseUrl+this.userUrl);
   }
   //获取默认的用户名称和密码
