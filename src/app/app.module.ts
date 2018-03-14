@@ -10,12 +10,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
-import { NavComponent } from './components/commons/nav/nav.component';
-import { AlertComponent } from './components/commons/alert/alert.component';
-import { UserlistComponent } from './components/systems/users/userlist/userlist.component';
-
-
-import { LoginCanActivateGuard } from './components/commons/guard/login-can-activate-guard';
+import { NavComponent } from './nav/nav.component';
+import { AlertComponent } from './alert/alert.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -44,10 +40,9 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     NavComponent,
-    AlertComponent,
-    UserlistComponent
+    AlertComponent
   ],
-  providers: [LoginCanActivateGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
