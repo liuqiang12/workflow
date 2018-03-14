@@ -23,7 +23,6 @@ export class UserService {
   getLoginDefault(){
     let loginUser = new LoginUserModel();
     for (let entry of this.loginDefaultData) {
-      console.log(entry.id+"---"+entry.name+"==============="+entry.password);
       loginUser.id = entry.id;
       loginUser.name = entry.name;
       loginUser.password = entry.password;

@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
     //设置默认的登录用户名称和用户密码
     this.loginUserModel = this.userService.getLoginDefault();
     console.log(this.loginUserModel)
+    console.log("获取相应的配置文件信息")
+    this.userService.getUsers();
   }
   onLoggedin() {
     console.log(this.loginUserModel)
