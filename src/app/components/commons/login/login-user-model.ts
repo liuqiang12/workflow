@@ -1,19 +1,11 @@
 //默认是public类型
 export class LoginUserModel  {
-  public id : number;
-  public name: string;
-  public password:string;
-  constructor() {}
   //构造函数
   constructor(
     public id : number,
     public name: string,
     public password:string
-  ) {
-    this.id = id;
-    this.name = name;
-    this.password = password;
-  }
+  ) {  }
 
   //转换成json对象
   toJsonModel() {

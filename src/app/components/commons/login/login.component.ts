@@ -21,7 +21,7 @@ import {UserService} from '../../../services/systems/user.service';
 })
 //模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
 export class LoginComponent implements OnInit {
-  loginUserModel = new  LoginUserModel();
+  loginUserModel = new LoginUserModel(null,null,null);
   constructor(
     public router: Router,
     public userService : UserService

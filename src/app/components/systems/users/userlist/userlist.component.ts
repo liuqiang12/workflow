@@ -13,10 +13,7 @@ export class UserlistComponent implements OnInit {
   datas:string[];
   ngOnInit() {
     //初始化的时候，就获取了用户列表信息
-    this.userService.getUsers().subscribe(data =>{
-      this.datas = data['data'];
-      console.log(this.datas)
-    });
+
   }
 
 }

@@ -21,7 +21,8 @@ export class UserService {
   }
   //获取默认的用户名称和密码
   getLoginDefault(){
-    let loginUser = new LoginUserModel();
+    let loginUser : LoginUserModel;
+
     for (let entry of this.loginDefaultData) {
       loginUser.id = entry.id;
       loginUser.name = entry.name;
