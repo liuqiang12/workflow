@@ -10,7 +10,7 @@ import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
-import { LoadingMaskModule } from './loading-mask/loading-mask.module'
+import { HttpService } from './http.service'
 import {
   ApiService,
   ArticlesService,
@@ -43,14 +43,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     ProfileModule,
     rootRouting,
     SharedModule,
-    SettingsModule,
+    SettingsModule/*,
     LoadingMaskModule.forRoot({
       snippet: {
         imgUrl: 'ripple.svg',
         size: 144
       },
       debug: true
-    })
+    })*/
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true},
@@ -61,7 +61,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     JwtService,
     ProfilesService,
     TagsService,
-    UserService
+    UserService,
+    HttpService
   ],
   bootstrap: [AppComponent]
 })

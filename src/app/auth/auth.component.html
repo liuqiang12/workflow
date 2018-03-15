@@ -9,7 +9,8 @@
           <a [routerLink]="['/register']" *ngIf="authType == 'login'">注册?</a>
         </p>
         <app-list-errors [errors]="errors"></app-list-errors>
-        <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+        <div class="wrapper" [ngxLoadingMask]="'foo'">
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()" ngxLoadingMask>
           <fieldset [disabled]="isSubmitting">
             <fieldset class="form-group">
               <input
@@ -33,11 +34,16 @@
                 class="form-control form-control-lg"
                 type="password" />
             </fieldset>
+            <div ngxLoadingMask>
+              <button (click)="toggle()">Emit Mock Event</button>
+            </div>
             <button class="btn btn-lg btn-primary pull-xs-right" [disabled]="!authForm.valid" type="submit">
               {{ title }}
             </button>
+
           </fieldset>
         </form>
+        </div>
       </div>
 
     </div>
