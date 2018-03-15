@@ -29,7 +29,7 @@ const authRouting: ModuleWithProviders = RouterModule.forChild([
     SharedModule,
     LoadingMaskModule.forRoot({
       snippet: {
-        imgUrl: 'http://littlelyon.com/ngx-loading-mask/assets/ripple.svg',
+        imgUrl: './ripple.svg',
         size: 144
       },
       debug: true
