@@ -5,6 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://conduit.productionready.io/api',
-  ripple_url: 'http://localhost:4200/'
+  api_url: 'https://conduit.productionready.io/api'
 };
