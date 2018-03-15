@@ -43,14 +43,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     ProfileModule,
     rootRouting,
     SharedModule,
-    SettingsModule/*,
-    LoadingMaskModule.forRoot({
-      snippet: {
-        imgUrl: 'ripple.svg',
-        size: 144
-      },
-      debug: true
-    })*/
+    SettingsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true},

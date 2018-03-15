@@ -4,7 +4,9 @@ import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { NoAuthGuard } from './no-auth-guard.service';
 import { LoadingMaskModule } from '../loading-mask/loading-mask.module'
+import { environment } from '../../environments/environment.prod';
 import { SharedModule } from '../shared';
+import {environment} from '../../environments/environment';
 
 /**
  * 顶部路由
@@ -29,7 +31,7 @@ const authRouting: ModuleWithProviders = RouterModule.forChild([
     SharedModule,
     LoadingMaskModule.forRoot({
       snippet: {
-        imgUrl: './ripple.svg',
+        imgUrl: '/assets/images/ripple.svg',
         size: 144
       },
       debug: true
