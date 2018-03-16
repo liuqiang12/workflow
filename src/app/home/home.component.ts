@@ -8,6 +8,9 @@ import { ArticleListConfig, TagsService, UserService } from '../shared';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+/**
+ * 主界面布局
+ */
 export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
@@ -25,13 +28,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
       console.log("home.component.ts>>>>>>>>>>>>>>>>>")
-
-
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
-        this.isAuthenticated = authenticated;
 
-        // set the article list accordingly
+        console.log(authenticated);
+        this.isAuthenticated = authenticated;
+        // set the article list accordingly:[相应地设置文章列表]
         if (authenticated) {
           this.setListTo('feed');
         } else {
@@ -42,6 +44,8 @@ export class HomeComponent implements OnInit {
 
     this.tagsService.getAll()
       .subscribe(tags => {
+        console.log(tags)
+
         this.tags = tags;
         this.tagsLoaded = true;
       });
@@ -53,7 +57,6 @@ export class HomeComponent implements OnInit {
       this.router.navigateByUrl('/login');
       return;
     }
-
     // Otherwise, set the list object
     this.listConfig = {type: type, filters: filters};
   }

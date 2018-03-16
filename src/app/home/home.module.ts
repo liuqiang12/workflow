@@ -14,7 +14,7 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
     component: HomeComponent,
-    //等数据加载完毕后再路由界面，否则会出现UI抖动
+    //等数据加载完毕后再路由界面，否则会出现UI抖动,提供后面的子页面使用isAuthenticated
     resolve: {
       isAuthenticated: HomeAuthResolver
     }

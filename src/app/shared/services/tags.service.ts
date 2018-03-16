@@ -14,5 +14,4 @@ export class TagsService {
     return this.apiService.get('/tags')
       .pipe(map(data => data.tags));
   }
-
 }

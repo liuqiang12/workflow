@@ -17,6 +17,7 @@ export class ArticleListComponent {
   @Input()
   set config(config: ArticleListConfig) {
     if (config) {
+      console.log(config)
       this.query = config;
       this.currentPage = 1;
       this.runQuery();
@@ -35,6 +36,8 @@ export class ArticleListComponent {
   }
 
   runQuery() {
+    console.log(this.query)
+    console.log("========000000============")
     this.loading = true;
     this.results = [];
 
@@ -43,14 +46,17 @@ export class ArticleListComponent {
       this.query.filters.limit = this.limit;
       this.query.filters.offset =  (this.limit * (this.currentPage - 1));
     }
-
+    console.log("========000000============")
     this.articlesService.query(this.query)
       .subscribe(data => {
         this.loading = false;
-        this.results = null;//data.articles;
-
+        this.results = data.articles;
+        console.log(data)
         // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
+        console.log(this.totalPages)
       });
+    console.log("resultsresultsresultsresultsresultsresultsresults")
+    console.log(this.results)
   }
 }
