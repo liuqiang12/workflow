@@ -82,7 +82,11 @@ export class AuthComponent implements OnInit {
   }
 
   /**
-   * 注册和登录方法
+   * 注册和登录方法q
+   请求数据格式
+   user={id: 24109, email: "784248174@qq.com", createdAt: "2018-03-16T12:25:04.526Z",token:"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjQxMDksInVzZXJuYW1lIjoibGl1cWlhbmdkYSIsImV4cCI6MTUyNjM4NzEwNH0.dzWQ2neMF1qccnqSavnagXnjqvtApzlprCfAwetLk5c"}
+   返回的值
+   {"user":{"id":24109,"email":"784248174@qq.com","createdAt":"2018-03-16T12:25:04.526Z","updatedAt":"2018-03-16T12:25:04.532Z","username":"liuqiangda","bio":null,"image":null,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjQxMDksInVzZXJuYW1lIjoibGl1cWlhbmdkYSIsImV4cCI6MTUyNjM4NzEwNH0.dzWQ2neMF1qccnqSavnagXnjqvtApzlprCfAwetLk5c"}}
    */
   submitForm() {
     /* 这里需要增加进度条 */

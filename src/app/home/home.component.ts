@@ -24,6 +24,9 @@ export class HomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
+      console.log("home.component.ts>>>>>>>>>>>>>>>>>")
+
+
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
