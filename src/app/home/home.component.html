@@ -17,14 +17,14 @@
               <a class="nav-link"
                  [ngClass]="{'active': listConfig.type === 'feed'}"
                  (click)="setListTo('feed')">
-                Your Feed
+                背景
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link"
                  [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
                  (click)="setListTo('all')">
-                Global Feed
+                工单
               </a>
             </li>
             <li class="nav-item" [hidden]="!listConfig.filters.tag">
