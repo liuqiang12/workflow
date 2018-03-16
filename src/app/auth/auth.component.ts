@@ -17,19 +17,8 @@ export class AuthComponent implements OnInit {
   validateForm: FormGroup
   isError = false
   isData = false
-  isCustom = false
   customMessage = 'custom loading template'
-  defaultGroup = DEFAULT_MASK_GROUP
   logs: string[] = []
-
-  timeoutMarks = {
-    1: '1s',
-    2: '2s',
-    3: '3s',
-    4: '4s',
-    5: '5s'
-  }
-
 
   authType: string = '';
   errors: Errors = {errors: {}};
@@ -51,9 +40,9 @@ export class AuthComponent implements OnInit {
       'password': ['', Validators.required]
     });
   }
- 
+
   ngOnInit() {
-    //验证的表单对象
+    //验证的表单对象-----------------进度条----init----start
     this.validateForm = this.fb.group({
       zone: [DEFAULT_MASK_GROUP],
       isData: [false],
@@ -71,17 +60,26 @@ export class AuthComponent implements OnInit {
         console.log(11111111111111111111111111)
         this.logs.push(`<span class="highlight">${e.id}</span> group in <span class="highlight">${e.status}</span> status ${timestamp}`)
       })
+    //验证的表单对象-----------------进度条----init----end
+    //在界面进入的时候，进度条初始化开始-----start
+
+    const groupName = this.validateForm.get('zone').value
+    this.togglePending(groupName, 0)
+    //在界面进入的时候，进度条初始化开始-----end
+
 
     this.route.url.subscribe(data => {
-      // Get the last piece of the URL (it's either 'login' or 'register')
-      this.authType = data[data.length - 1].path;
-      // Set a title for the page accordingly
-      this.title = (this.authType === 'login') ? '登录' : '注册';
-      // add form control for username if this is the register page
-      if (this.authType === 'register') {
-        this.authForm.addControl('username', new FormControl());
-      }
-    });
+        // Get the last piece of the URL (it's either 'login' or 'register')
+        this.authType = data[data.length - 1].path;
+        // Set a title for the page accordingly
+        this.title = (this.authType === 'login') ? '登录' : '注册';
+        // add form control for username if this is the register page
+        if (this.authType === 'register') {
+          this.authForm.addControl('username', new FormControl());
+        }
+      });
+
+
   }
 
   /**
@@ -90,30 +88,13 @@ export class AuthComponent implements OnInit {
   submitForm() {
     /* 这里需要增加进度条 */
     this.logs = []
-
-    const count = this.validateForm.get('count').value
-
-    const groupName = this.validateForm.get('zone').value
-    console.log(this.isData)
-    if (this.isData) {
-      this.requestMockData(groupName)
-    } else {
-      this.togglePending(groupName, 0)
-
-      for (let i = 0; i < count - 1; i++) {
-        const delay = Math.random() * 3
-
-        setTimeout(() => {
-          this.togglePending(groupName, delay)
-        }, delay * 1000)
-      }
-    }
-
+    const groupName = this.validateForm.get('zone').value;
+    this.togglePending(groupName, 0)
     this.isSubmitting = true;
     this.errors = {errors: {}};
     //用户凭证
     const credentials = this.authForm.value;
-    /*this.userService
+    this.userService
       .attemptAuth(this.authType, credentials)
       .subscribe(
           //跳转到首页
@@ -121,11 +102,12 @@ export class AuthComponent implements OnInit {
         //错误信息:提示和正在提交标志
         err => {
           this.errors = err;
+          this.isError = true;
           this.isSubmitting = false;
         }
-      );*/
+      );
   }
-
+  // 进度条的方法---------------------start----------------------
   /**
    *
    * @param {string} groupName
@@ -158,6 +140,10 @@ export class AuthComponent implements OnInit {
     this.maskService.hideGroupError(groupName, error)
   }
 
+  /**
+   * 请求数据时的方法时的精度条
+   * @param {string} groupName
+   */
   requestMockData(groupName: string) {
     this.logs.push(`emit <span class="highlight">${groupName}</span> group a request mock data task`)
 
@@ -167,6 +153,5 @@ export class AuthComponent implements OnInit {
         console.log(e)
       })
   }
-
-
+  // 进度条的方法--------------------- end----------------------
 }
