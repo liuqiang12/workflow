@@ -10,7 +10,7 @@
         </p>
         <app-list-errors [errors]="errors"></app-list-errors>
         <div class="wrapper" [ngxLoadingMask]="'foo'">
-        <form [formGroup]="authForm" (ngSubmit)="submitForm()" ngxLoadingMask >
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()" autocomplete="off" ngxLoadingMask >
           <fieldset [disabled]="isSubmitting">
             <fieldset class="form-group">
               <input
