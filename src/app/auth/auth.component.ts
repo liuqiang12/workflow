@@ -1,10 +1,9 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { skip } from 'rxjs/operators'
-import { HttpService } from '../http.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { DEFAULT_MASK_GROUP, LoadingMaskService } from '../loading-mask/index'
-import { Errors, UserService } from '../shared';
+import { Errors, UserService,HttpService } from '../shared';
 
 @Component({
   selector: 'app-auth-page',

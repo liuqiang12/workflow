@@ -15,9 +15,14 @@ export class HeaderComponent implements OnInit {
   currentUser: User;
 
   ngOnInit() {
-    //alert(1)
+    /**
+     * 获取当前用户数据
+     *  AuthComponent.submitForm
+     *
+     */
     this.userService.currentUser.subscribe(
       (userData) => {
+        console.log(userData);
         this.currentUser = userData;
       }
     );

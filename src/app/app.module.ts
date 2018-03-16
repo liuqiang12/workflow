@@ -10,7 +10,6 @@ import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
-import { HttpService } from './http.service'
 import {
   ApiService,
   ArticlesService,
@@ -23,7 +22,8 @@ import {
   SharedModule,
   TagsService,
   UserService,
-  HttpTokenInterceptor
+  HttpTokenInterceptor,
+  HttpService
 } from './shared';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
@@ -37,7 +37,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
   imports: [
     BrowserModule,
     ArticleModule,
-    AuthModule,
+    AuthModule,//用户权限模块
     EditorModule,
     HomeModule,
     ProfileModule,
