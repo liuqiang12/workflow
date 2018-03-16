@@ -7,6 +7,10 @@ import { JwtService } from './jwt.service';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError } from 'rxjs/operators/catchError';
 
+/**
+ * 封装请求方法
+ * GET PUT POST DELETE
+ */
 @Injectable()
 export class ApiService {
   constructor(

@@ -4,10 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { NoAuthGuard } from './no-auth-guard.service';
 import { LoadingMaskModule } from '../loading-mask/loading-mask.module'
-import { environment } from '../../environments/environment.prod';
 import { SharedModule } from '../shared';
-import {environment} from '../../environments/environment';
-
 /**
  * 顶部路由
  * @type {ModuleWithProviders}

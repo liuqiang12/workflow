@@ -30,14 +30,13 @@ export class AuthComponent implements OnInit {
   }
 
 
-  authType: String = '';
-  title: String = '';
+  authType: string = '';
   errors: Errors = {errors: {}};
   isSubmitting = false;
   authForm: FormGroup;
 
   constructor(
-    public service: LoadingMaskService,
+    public maskService: LoadingMaskService,
     private httpClient: HttpService,
 
     private route: ActivatedRoute,
@@ -53,6 +52,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
+    //验证的表单对象
     this.validateForm = this.fb.group({
       zone: [DEFAULT_MASK_GROUP],
       isData: [false],
@@ -63,6 +63,7 @@ export class AuthComponent implements OnInit {
       timeout: [1],
       count: [1]
     })
+    // ---------------  属性的监听信息----start----------
     this.validateForm.get('customMessage').valueChanges
       .subscribe(e => {
         this.customMessage = e
@@ -82,18 +83,14 @@ export class AuthComponent implements OnInit {
       .subscribe(e => {
         this.isData = e
       })
-
-    this.service.subscribe()
+    // ---------------  属性的监听信息----end----------
+    this.maskService.subscribe()
       .pipe(skip(1))
       .subscribe(e => {
         const timestamp = this.isData ? `at ${new Date().getTime()}` : ''
-
+        console.log(11111111111111111111111111)
         this.logs.push(`<span class="highlight">${e.id}</span> group in <span class="highlight">${e.status}</span> status ${timestamp}`)
       })
-
-
-
-
 
     this.route.url.subscribe(data => {
       // Get the last piece of the URL (it's either 'login' or 'register')
@@ -116,7 +113,7 @@ export class AuthComponent implements OnInit {
 
     const count = this.validateForm.get('count').value
     const groupName = this.validateForm.get('zone').value
-
+    console.log(this.isData)
     if (this.isData) {
       this.requestMockData(groupName)
     } else {
@@ -131,30 +128,16 @@ export class AuthComponent implements OnInit {
       }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     this.isSubmitting = true;
     this.errors = {errors: {}};
-
+    //用户凭证
     const credentials = this.authForm.value;
     this.userService
       .attemptAuth(this.authType, credentials)
       .subscribe(
+          //跳转到首页
         data => this.router.navigateByUrl('/'),
+        //错误信息:提示和正在提交标志
         err => {
           this.errors = err;
           this.isSubmitting = false;
@@ -162,6 +145,11 @@ export class AuthComponent implements OnInit {
       );
   }
 
+  /**
+   *
+   * @param {string} groupName
+   * @param {number} delay
+   */
   togglePending(groupName: string, delay: number) {
     const timeout = this.validateForm.get('timeout').value * 1000
     const errorMessage = this.validateForm.get('errorMessage').value
@@ -170,7 +158,7 @@ export class AuthComponent implements OnInit {
 
     this.logs.push(`${delayLog} emit <span class="highlight">${groupName}</span> group a <span class="highlight">${timeout}s</span> task`)
 
-    this.service.showGroup(groupName)
+    this.maskService.showGroup(groupName)
 
     setTimeout(() => {
       if (this.isError) {
@@ -182,11 +170,11 @@ export class AuthComponent implements OnInit {
   }
 
   toggleDone(groupName: string) {
-    this.service.hideGroup(groupName)
+    this.maskService.hideGroup(groupName)
   }
 
   toggleDoneWithError(groupName: string, error) {
-    this.service.hideGroupError(groupName, error)
+    this.maskService.hideGroupError(groupName, error)
   }
 
   requestMockData(groupName: string) {

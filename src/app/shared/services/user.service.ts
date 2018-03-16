@@ -12,16 +12,25 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
 
 @Injectable()
 export class UserService {
+  /**
+   * Observables和Subjects是两个“生产”实体，Observers和Subscribers是两个“消费”实体。
+   * PublishSubject
+   * BehaviorSubject
+   * ReplaySubject.
+   * AsyncSubject
+   * @type {BehaviorSubject<User>}
+   */
+  //换成订阅之前的最新数据(如果有)
   private currentUserSubject = new BehaviorSubject<User>({} as User);
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
-
+  //是否授权缓冲区
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   constructor (
-    private apiService: ApiService,
-    private http: HttpClient,
-    private jwtService: JwtService
+    private apiService: ApiService,//
+    private http: HttpClient,//请求服务
+    private jwtService: JwtService//JWT认证
   ) {}
 
   // Verify JWT in localstorage with server & load user's info.
@@ -40,6 +49,10 @@ export class UserService {
     }
   }
 
+  /**
+   *
+   * @param {User} user
+   */
   setAuth(user: User) {
     // Save JWT sent from server in localstorage
     this.jwtService.saveToken(user.token);
@@ -49,6 +62,9 @@ export class UserService {
     this.isAuthenticatedSubject.next(true);
   }
 
+  /**
+   *
+   */
   purgeAuth() {
     // Remove JWT from localstorage
     this.jwtService.destroyToken();
@@ -57,12 +73,22 @@ export class UserService {
     // Set auth status to false
     this.isAuthenticatedSubject.next(false);
   }
-
+  //----------------------------------------------------------------
+  /**
+   *attempt:中文--尝试
+   * 作用  保存当前的用户信息
+   * @param type 类型
+   * @param credentials 凭证
+   * @returns {Observable<User>}
+   */
   attemptAuth(type, credentials): Observable<User> {
     const route = (type === 'login') ? '/login' : '';
     return this.apiService.post('/users' + route, {user: credentials})
       .pipe(map(
         data => {
+          console.log("=========[]===========")
+          console.log(data)
+          console.log("===========================")
           this.setAuth(data.user);
           return data;
         }
