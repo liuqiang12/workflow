@@ -10,7 +10,7 @@
         </p>
         <app-list-errors [errors]="errors"></app-list-errors>
         <div class="wrapper" [ngxLoadingMask]="'foo'">
-        <form [formGroup]="authForm" (ngSubmit)="submitForm()" ngxLoadingMask>
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()" ngxLoadingMask >
           <fieldset [disabled]="isSubmitting">
             <fieldset class="form-group">
               <input
@@ -34,9 +34,6 @@
                 class="form-control form-control-lg"
                 type="password" />
             </fieldset>
-            <div ngxLoadingMask>
-              <button (click)="toggle()">Emit Mock Event</button>
-            </div>
             <button class="btn btn-lg btn-primary pull-xs-right" [disabled]="!authForm.valid" type="submit">
               {{ title }}
             </button>

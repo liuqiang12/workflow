@@ -8,7 +8,8 @@ import { Errors, UserService } from '../shared';
 
 @Component({
   selector: 'app-auth-page',
-  templateUrl: './auth.component.html'
+  templateUrl: './auth.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class AuthComponent implements OnInit {
   title = 'ngx-loading-mask'
@@ -50,7 +51,7 @@ export class AuthComponent implements OnInit {
       'password': ['', Validators.required]
     });
   }
-
+ 
   ngOnInit() {
     //验证的表单对象
     this.validateForm = this.fb.group({
@@ -63,27 +64,6 @@ export class AuthComponent implements OnInit {
       timeout: [1],
       count: [1]
     })
-    // ---------------  属性的监听信息----start----------
-    this.validateForm.get('customMessage').valueChanges
-      .subscribe(e => {
-        this.customMessage = e
-      })
-
-    this.validateForm.get('isCustom').valueChanges
-      .subscribe(e => {
-        this.isCustom = e
-      })
-
-    this.validateForm.get('isError').valueChanges
-      .subscribe(e => {
-        this.isError = e
-      })
-
-    this.validateForm.get('isData').valueChanges
-      .subscribe(e => {
-        this.isData = e
-      })
-    // ---------------  属性的监听信息----end----------
     this.maskService.subscribe()
       .pipe(skip(1))
       .subscribe(e => {
@@ -112,6 +92,7 @@ export class AuthComponent implements OnInit {
     this.logs = []
 
     const count = this.validateForm.get('count').value
+
     const groupName = this.validateForm.get('zone').value
     console.log(this.isData)
     if (this.isData) {
@@ -132,7 +113,7 @@ export class AuthComponent implements OnInit {
     this.errors = {errors: {}};
     //用户凭证
     const credentials = this.authForm.value;
-    this.userService
+    /*this.userService
       .attemptAuth(this.authType, credentials)
       .subscribe(
           //跳转到首页
@@ -142,7 +123,7 @@ export class AuthComponent implements OnInit {
           this.errors = err;
           this.isSubmitting = false;
         }
-      );
+      );*/
   }
 
   /**
@@ -181,7 +162,7 @@ export class AuthComponent implements OnInit {
     this.logs.push(`emit <span class="highlight">${groupName}</span> group a request mock data task`)
 
     this.httpClient.withLoadingMask(groupName)
-      .get('/assets/mock-data.json')
+      .get('/assets/json/mock-data.json')
       .subscribe(e => {
         console.log(e)
       })
