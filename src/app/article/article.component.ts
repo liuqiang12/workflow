@@ -40,7 +40,7 @@ export class ArticleComponent implements OnInit {
       (data: { article: Article }) => {
         this.article = data.article;
         console.log("通过路由获取的相关参数")
-      console.log(data)
+        console.log(data)
         // Load the comments on this article
         this.populateComments();
       }
@@ -50,7 +50,12 @@ export class ArticleComponent implements OnInit {
     this.userService.currentUser.subscribe(
       (userData: User) => {
         this.currentUser = userData;
-
+        /*
+        * 如果当前用户没有头像,则整一个默认头像
+        * */
+        if(this.currentUser && !this.currentUser.image){
+          this.currentUser.image = "assets/images/smiley-cyrus.jpg";
+        }
         this.canModify = (this.currentUser.username === this.article.author.username);
       }
     );

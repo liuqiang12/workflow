@@ -18,7 +18,11 @@ export class CommentsService {
       .post(
         `/articles/${slug}/comments`,
         { comment: { body: payload } }
-      ).pipe(map(data => data.comment));
+      ).pipe(map(data => {
+        console.log(data.comment)
+        console.log("[------- data.comment -------]")
+        return data.comment;
+      }));
   }
 
   getAll(slug): Observable<Comment[]> {

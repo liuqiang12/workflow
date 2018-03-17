@@ -92,11 +92,12 @@
 
         <div *appShowAuthed="true">
           <app-list-errors [errors]="commentFormErrors"></app-list-errors>
-          <form class="card comment-form" (ngSubmit)="addComment()">
+          <!--  提交的时候，可以采用增加进度条  -->
+          <form class="card comment-form" (ngSubmit)="addComment()" >
             <fieldset [disabled]="isSubmitting">
               <div class="card-block">
                 <textarea class="form-control"
-                          placeholder="Write a comment..."
+                          placeholder="评论..."
                           rows="3"
                           [formControl]="commentControl"
                 ></textarea>
@@ -104,7 +105,7 @@
               <div class="card-footer">
                 <img [src]="currentUser.image" class="comment-author-img" />
                 <button class="btn btn-sm btn-primary" type="submit">
-                  Post Comment
+                  评论
                 </button>
               </div>
             </fieldset>
