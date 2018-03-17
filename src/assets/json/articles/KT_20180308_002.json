@@ -1,0 +1,17 @@
+{
+  "title": "Bài 1",
+  "slug": "KT_20180308_002",
+  "body": "Abc",
+  "createdAt": "2018-03-17T01:59:41.888Z",
+  "updatedAt": "2018-03-17T01:59:41.888Z",
+  "tagList": [ ],
+  "description": "Giới thiệu data",
+  "author": {
+    "username": "thienvd",
+    "bio": "tình hình là  rất tình hình tag",
+    "image": "assets/images/1-1521195309612675284162.jpg",
+    "following": false
+  },
+  "favorited": false,
+  "favoritesCount": 1
+}

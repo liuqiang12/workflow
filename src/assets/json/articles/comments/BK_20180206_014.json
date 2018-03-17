@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "id": 19210,
+      "createdAt": "2018-03-17T02:15:40.687Z",
+      "updatedAt": "2018-03-17T02:15:40.687Z",
+      "body": "Ngon cực luôn",
+      "author": {
+        "username": "xxxxxxxxxxxx",
+        "bio": "tình hình là  rất tình hình tag",
+        "image": "https://dantricdn.com/2018/3/16/1-1521195309612675284162.jpg",
+        "following": false
+      }
+    },
+    {
+      "id": 19209,
+      "createdAt": "2018-03-17T02:15:33.041Z",
+      "updatedAt": "2018-03-17T02:15:33.041Z",
+      "body": "Quá ngon ",
+      "author": {
+        "username": "thienvd",
+        "bio": "tình hình là  rất tình hình tag",
+        "image": "https://dantricdn.com/2018/3/16/1-1521195309612675284162.jpg",
+        "following": false
+      }
+    }
+  ]
+}

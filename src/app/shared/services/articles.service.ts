@@ -3,13 +3,15 @@ import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { ApiService } from './api.service';
+import { AppApiService } from './appApi.service';
 import { Article, ArticleListConfig } from '../models';
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ArticlesService {
   constructor (
-    private apiService: ApiService
+    /*private apiService: ApiService,*/
+    private apiService: AppApiService
   ) {}
 
   query(config: ArticleListConfig): Observable<{articles: Article[], articlesCount: number}> {
@@ -23,15 +25,24 @@ export class ArticlesService {
 
     return this.apiService
       .get(
-        '/articles' + ((config.type === 'feed') ? '/feed' : ''),
+        '/assets/json/articles.json' + ((config.type === 'feed') ? '/feed' : ''),
         new HttpParams(params)
       );
   }
+  get(slug): Observable<Article> {
+    return this.apiService.get('/assets/json/articles/' + slug+".json")
+      .pipe(map(data => {
 
+        return data.article
+      }));
+  }/*
   get(slug): Observable<Article> {
     return this.apiService.get('/articles/' + slug)
-      .pipe(map(data => data.article));
-  }
+      .pipe(map(data => {
+
+        return data.article
+      }));
+  }*/
 
   destroy(slug) {
     return this.apiService.delete('/articles/' + slug);

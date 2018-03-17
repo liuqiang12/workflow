@@ -1,4 +1,5 @@
 export * from './api.service';
+export * from './appApi.service';
 export * from './articles.service';
 export * from './auth-guard.service';
 export * from './comments.service';

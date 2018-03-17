@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiService } from './api.service';
+import { AppApiService } from './appApi.service';
 import { map } from 'rxjs/operators';
 
-
+/**
+ * 服务中的重点就是动态的添加路由信息
+ */
 @Injectable()
 export class CommentsService {
   constructor (
-    private apiService: ApiService
+    private apiService: AppApiService
   ) {}
 
   add(slug, payload): Observable<Comment> {
@@ -20,8 +22,12 @@ export class CommentsService {
   }
 
   getAll(slug): Observable<Comment[]> {
-    return this.apiService.get(`/articles/${slug}/comments`)
-      .pipe(map(data => data.comments));
+    return this.apiService.get(`/assets/json/articles/comments/${slug}.json`)
+      .pipe(map(data => {
+        console.log("00000000000000000000000000000000000==:data:comments:")
+        console.log(data)
+        return data.comments;
+      }));
   }
 
   destroy(commentId, articleSlug) {

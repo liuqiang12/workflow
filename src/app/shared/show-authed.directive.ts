@@ -25,8 +25,11 @@ export class ShowAuthedDirective implements OnInit {
     this.userService.isAuthenticated.subscribe(
       (isAuthenticated) => {
         if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
+          //显示：登陆过,且条件true，即要求显示
+          //没有登录，且条件false，即有权限看
           this.viewContainer.createEmbeddedView(this.templateRef);
         } else {
+          //否则不显示模板
           this.viewContainer.clear();
         }
       }

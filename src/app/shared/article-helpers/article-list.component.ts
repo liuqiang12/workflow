@@ -17,9 +17,10 @@ export class ArticleListComponent {
   @Input()
   set config(config: ArticleListConfig) {
     if (config) {
-      console.log(config)
+      console.log("<<<<<<<<<<<<<<<<<<==========封装了查询类型和查询条件Filters============>>>>>>>>>>>>>>>")
       this.query = config;
       this.currentPage = 1;
+      //查询类型、查询条件、页号
       this.runQuery();
     }
   }
@@ -36,7 +37,6 @@ export class ArticleListComponent {
   }
 
   runQuery() {
-    console.log(this.query)
     console.log("========000000============")
     this.loading = true;
     this.results = [];

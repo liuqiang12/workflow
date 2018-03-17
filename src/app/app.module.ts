@@ -12,6 +12,7 @@ import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
 import {
   ApiService,
+  AppApiService,
   ArticlesService,
   AuthGuard,
   CommentsService,
@@ -48,6 +49,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true},
     ApiService,
+    AppApiService,
     ArticlesService,
     AuthGuard,
     CommentsService,
