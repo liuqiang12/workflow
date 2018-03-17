@@ -28,7 +28,7 @@
           <app-favorite-button
             [article]="article"
             (toggle)="onToggleFavorite($event)">
-            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
+            {{ article.favorited ? '点赞' : '已赞' }} Article <span class="counter">({{ article.ticketsCount }})</span>
           </app-favorite-button>
         </span>
 
@@ -41,7 +41,7 @@
     <div class="row article-content">
       <div class="col-md-12">
 
-        <div [innerHTML]="article.body | markdown"></div>
+        <div [innerHTML]="article.body"></div>
 
         <ul class="tag-list">
           <li *ngFor="let tag of article.tagList"
@@ -80,7 +80,7 @@
           <app-favorite-button
             [article]="article"
             (toggle)="onToggleFavorite($event)">
-            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
+            {{ article.favorited ? '点赞' : '已赞' }} 数 <span class="counter">({{ article.ticketsCount }})</span>
           </app-favorite-button>
         </span>
 

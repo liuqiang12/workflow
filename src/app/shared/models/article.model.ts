@@ -9,6 +9,6 @@ export interface Article {
   createdAt: string;
   updatedAt: string;
   favorited: boolean;
-  favoritesCount: number;
+  ticketsCount: number;
   author: Profile;
 }

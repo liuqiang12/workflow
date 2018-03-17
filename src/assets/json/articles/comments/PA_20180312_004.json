@@ -9,7 +9,7 @@
         "username": "uuuuuuuuuuuuuuuuu",
         "bio": "tình hình là  rất tình hình tag",
         "image": "https://dantricdn.com/2018/3/16/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       }
     },
     {
@@ -21,7 +21,7 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "https://dantricdn.com/2018/3/16/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       }
     }
   ]

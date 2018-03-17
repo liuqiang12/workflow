@@ -1,10 +1,10 @@
 <button
   class="btn btn-sm action-btn"
   [ngClass]="{ 'disabled': isSubmitting,
-               'btn-outline-secondary': !profile.following,
-               'btn-secondary': profile.following }"
+               'btn-outline-secondary': !profile.createTicketing,
+               'btn-secondary': profile.createTicketing }"
   (click)="toggleFollowing()">
   <i class="ion-plus-round"></i>
   &nbsp;
-  {{ profile.following ? 'Unfollow' : 'Follow' }} {{ profile.username }}
+  开始设计BPM - {{ profile.username }}
 </button>

@@ -11,9 +11,9 @@
       "username": "thienvd",
       "bio": "tình hình là  rất tình hình tag",
       "image": "assets/images/1-1521195309612675284162.jpg",
-      "following": false
+      "createTicketing": false
     },
     "favorited": false,
-    "favoritesCount": 1
+    "ticketsCount": 1
   }
 }

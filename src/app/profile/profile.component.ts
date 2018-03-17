@@ -36,8 +36,8 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  onToggleFollowing(following: boolean) {
-    this.profile.following = following;
+  onToggleFollowing(createTicketing: boolean) {
+    this.profile.createTicketing = createTicketing;
   }
 
 }

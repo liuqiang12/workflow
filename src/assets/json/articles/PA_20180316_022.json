@@ -11,9 +11,9 @@
       "username": "yangTest001",
       "bio": null,
       "image": "assets/images/smiley-cyrus.jpg",
-      "following": false
+      "createTicketing": false
     },
     "favorited": false,
-    "favoritesCount": 1
+    "ticketsCount": 1
   }
 }

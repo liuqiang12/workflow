@@ -11,10 +11,10 @@
         "username": "蒲敏",
         "bio": "asdfadfas2222222222222",
         "image": "assets/images/smiley-cyrus.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 0
+      "ticketsCount": 0
     },
     {
       "title": "fea",
@@ -28,10 +28,10 @@
         "username": "yangTest001",
         "bio": null,
         "image": "assets/images/smiley-cyrus.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Ô tô đẹp",
@@ -45,10 +45,10 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "assets/images/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Bài 1",
@@ -62,10 +62,10 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "assets/images/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Bài 1",
@@ -79,10 +79,10 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "assets/images/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Bài 1",
@@ -96,10 +96,10 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "assets/images/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Bài 1",
@@ -113,10 +113,10 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "assets/images/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Bài 1",
@@ -130,10 +130,10 @@
         "username": "thienvd",
         "bio": "tình hình là  rất tình hình tag",
         "image": "assets/images/1-1521195309612675284162.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Lorem Ipsum",
@@ -150,10 +150,10 @@
         "username": "nickd",
         "bio": "Nick's bio goes here",
         "image": "assets/images//smiley-cyrus.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     },
     {
       "title": "Lorem Ipsum",
@@ -170,10 +170,10 @@
         "username": "nickd",
         "bio": "Nick's bio goes here",
         "image": "assets/images//smiley-cyrus.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 1
+      "ticketsCount": 1
     }
   ],
   "articlesCount": 10

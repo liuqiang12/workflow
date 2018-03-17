@@ -12,9 +12,9 @@
         "username": "蒲敏",
         "bio": "asdfadfas2222222222222",
         "image": "assets/images/smiley-cyrus.jpg",
-        "following": false
+        "createTicketing": false
       },
       "favorited": false,
-      "favoritesCount": 0
+      "ticketsCount": 0
     }
   }

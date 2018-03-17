@@ -32,7 +32,7 @@ export class FollowButtonComponent {
         }
 
         // Follow this profile if we aren't already
-        if (!this.profile.following) {
+        if (!this.profile.createTicketing) {
           this.profilesService.follow(this.profile.username)
             .subscribe(
               data => {

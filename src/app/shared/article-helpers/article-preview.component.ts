@@ -13,9 +13,9 @@ export class ArticlePreviewComponent {
     this.article['favorited'] = favorited;
 
     if (favorited) {
-      this.article['favoritesCount']++;
+      this.article['ticketsCount']++;
     } else {
-      this.article['favoritesCount']--;
+      this.article['ticketsCount']--;
     }
   }
 }

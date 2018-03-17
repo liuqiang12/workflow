@@ -60,14 +60,14 @@ export class ArticleComponent implements OnInit {
     this.article.favorited = favorited;
 
     if (favorited) {
-      this.article.favoritesCount++;
+      this.article.ticketsCount++;
     } else {
-      this.article.favoritesCount--;
+      this.article.ticketsCount--;
     }
   }
 
-  onToggleFollowing(following: boolean) {
-    this.article.author.following = following;
+  onToggleFollowing(createTicketing: boolean) {
+    this.article.author.createTicketing = createTicketing;
   }
 
   deleteArticle() {
