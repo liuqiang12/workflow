@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { EditorModule } from './editor/editor.module';
+import { NoticeModule } from './notice/notice.module';
 import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
@@ -14,6 +15,7 @@ import {
   ApiService,
   AppApiService,
   ArticlesService,
+  NoticesService,
   AuthGuard,
   CommentsService,
   FooterComponent,
@@ -40,6 +42,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     ArticleModule,
     AuthModule,//用户权限模块
     EditorModule,
+    NoticeModule,//通知模块
     HomeModule,
     ProfileModule,
     rootRouting,
@@ -51,6 +54,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     ApiService,
     AppApiService,
     ArticlesService,
+    NoticesService,
     AuthGuard,
     CommentsService,
     JwtService,
