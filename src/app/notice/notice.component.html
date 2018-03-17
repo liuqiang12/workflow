@@ -1,32 +1,32 @@
-<div class="editor-page">
+<div class="notice-page">
   <div class="container page">
     <div class="row">
       <div class="col-md-10 offset-md-1 col-xs-12">
 
         <app-list-errors [errors]="errors"></app-list-errors>
 
-        <form [formGroup]="articleForm">
+        <form [formGroup]="noticeForm">
           <fieldset [disabled]="isSubmitting">
 
             <fieldset class="form-group">
               <input class="form-control form-control-lg"
                      formControlName="title"
                      type="text"
-                     placeholder="Article Title" />
+                     placeholder="Notice Title" />
             </fieldset>
 
             <fieldset class="form-group">
               <input class="form-control"
                      formControlName="description"
                      type="text"
-                     placeholder="What's this article about?" />
+                     placeholder="What's this notice about?" />
             </fieldset>
 
             <fieldset class="form-group">
               <textarea class="form-control"
                         formControlName="body"
                         rows="8"
-                        placeholder="Write your article (in markdown)">
+                        placeholder="Write your notice (in markdown)">
               </textarea>
             </fieldset>
 
@@ -38,7 +38,7 @@
                      (keyup.enter)="addTag()" />
 
               <div class="tag-list">
-                <span *ngFor="let tag of article.tagList"
+                <span *ngFor="let tag of notice.tagList"
                       class="tag-default tag-pill">
                   <i class="ion-close-round" (click)="removeTag(tag)"></i>
                   {{ tag }}

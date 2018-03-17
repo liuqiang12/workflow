@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Article, NoticesService } from '../shared';
+import { Notice, NoticesService } from '../shared';
 
 @Component({
   selector: 'app-notice-page',
   templateUrl: './notice.component.html'
 })
 export class NoticeComponent implements OnInit {
-  article: Article = {} as Article;
-  articleForm: FormGroup;
+  notice: Notice = {} as Notice;
+  noticeForm: FormGroup;
   tagField = new FormControl();
   errors: Object = {};
   isSubmitting = false;
@@ -22,22 +22,22 @@ export class NoticeComponent implements OnInit {
     private fb: FormBuilder
   ) {
     // use the FormBuilder to create a form group
-    this.articleForm = this.fb.group({
+    this.noticeForm = this.fb.group({
       title: '',
       description: '',
       body: '',
     });
     // Optional: subscribe to value changes on the form
-    // this.articleForm.valueChanges.subscribe(value => this.updateArticle(value));
+    // this.noticeForm.valueChanges.subscribe(value => this.updateNotice(value));
   }
 
   ngOnInit() {
-    // If there's an article prefetched, load it
+    // If there's an notice prefetched, load it
     this.route.data.subscribe(
-      (data: {article: Article}) => {
-        if (data.article) {
-          this.article = data.article;
-          this.articleForm.patchValue(data.article);
+      (data: {notice: Notice}) => {
+        if (data.notice) {
+          this.notice = data.notice;
+          this.noticeForm.patchValue(data.notice);
         }
       }
     );
@@ -47,26 +47,26 @@ export class NoticeComponent implements OnInit {
     // retrieve tag control
     const tag = this.tagField.value;
     // only add tag if it does not exist yet
-    if (this.article.tagList.indexOf(tag) < 0) {
-      this.article.tagList.push(tag);
+    if (this.notice.tagList.indexOf(tag) < 0) {
+      this.notice.tagList.push(tag);
     }
     // clear the input
     this.tagField.reset('');
   }
 
   removeTag(tagName: string) {
-    this.article.tagList = this.article.tagList.filter((tag) => tag !== tagName);
+    this.notice.tagList = this.notice.tagList.filter((tag) => tag !== tagName);
   }
 
   submitForm() {
     this.isSubmitting = true;
 
     // update the model
-    this.updateArticle(this.articleForm.value);
+    this.updateArticle(this.noticeForm.value);
 
     // post the changes
     this.noticesService
-      .save(this.article)
+      .save(this.notice)
       .subscribe(
         article => this.router.navigateByUrl('/notice/' + article.slug),
         err => {
@@ -77,6 +77,6 @@ export class NoticeComponent implements OnInit {
   }
 
   updateArticle(values: Object) {
-    Object.assign(this.article, values);
+    Object.assign(this.notice, values);
   }
 }
