@@ -7,6 +7,10 @@ import { ArticleResolver } from './article-resolver.service';
 import { MarkdownPipe } from './markdown.pipe';
 import { SharedModule } from '../shared';
 
+/**
+ * 列表的路由配置
+ * @type {ModuleWithProviders}
+ */
 const articleRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'article/:slug',

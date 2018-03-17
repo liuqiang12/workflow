@@ -32,7 +32,10 @@ export class ArticlesService {
   get(slug): Observable<Article> {
     return this.apiService.get('/assets/json/articles/' + slug+".json")
       .pipe(map(data => {
-
+        console.log("点击单个工单，获取工单的具体相关数据------------start")
+        console.log(data.article)
+        console.log(data)
+        console.log("点击单个工单，获取工单的具体相关数据--------------end")
         return data.article
       }));
   }/*

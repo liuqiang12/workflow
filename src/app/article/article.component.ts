@@ -34,11 +34,13 @@ export class ArticleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     // Retreive the prefetched article
     this.route.data.subscribe(
       (data: { article: Article }) => {
         this.article = data.article;
-
+        console.log("通过路由获取的相关参数")
+      console.log(data)
         // Load the comments on this article
         this.populateComments();
       }
