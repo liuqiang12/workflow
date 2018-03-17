@@ -1,0 +1,17 @@
+<div class="article-meta">
+  <a [routerLink]="['/profile', notice.author.username]">
+    <img [src]="notice.author.image" />
+  </a>
+
+  <div class="info">
+    <a class="author"
+       [routerLink]="['/profile', notice.author.username]">
+      {{ notice.author.username }}
+    </a>
+    <span class="date">
+      {{ notice.createdAt | date: 'longDate' }}
+    </span>
+  </div>
+
+  <ng-content></ng-content>
+</div>

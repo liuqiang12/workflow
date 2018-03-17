@@ -1,0 +1,19 @@
+<div class="article-preview">
+  <app-notice-meta [notice]="notice">
+    <app-favorite-button [notice]="notice" (toggle)="onToggleFavorite($event)"  class="pull-xs-right">
+      {{notice.ticketsCount}}
+    </app-favorite-button>
+  </app-notice-meta>
+  <!--  这个路由怎么跳转的 -->
+  <a [routerLink]="['/article', notice.slug]" class="preview-link">
+    <h1>{{ notice.title }}</h1>
+    <p>{{ notice.description }}22222222222222222222</p>
+    <span>Read more...</span>
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+          *ngFor="let tag of notice.tagList">
+        {{ tag }}
+      </li>
+    </ul>
+  </a>
+</div>
